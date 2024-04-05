@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CreateImagenAdmPageRoutingModule } from './create-imagen-adm-routing.module';
+import { SubirImagenAdmPageRoutingModule } from './subir-imagen-adm-routing.module';
 
-import { CreateImagenAdmPage } from './create-imagen-adm.page';
+import { SubirImagenAdmPage } from './subir-imagen-adm.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CreateImagenAdmPageRoutingModule
+    SubirImagenAdmPageRoutingModule
   ],
-  declarations: [CreateImagenAdmPage]
+  declarations: [SubirImagenAdmPage]
 })
-export class CreateImagenAdmPageModule {}
+export class SubirImagenAdmPageModule {}

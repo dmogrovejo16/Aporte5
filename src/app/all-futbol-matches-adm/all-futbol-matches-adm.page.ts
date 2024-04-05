@@ -1,6 +1,7 @@
 import { Component,ElementRef,  OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../api.service';
+import { Firestore, doc, setDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-all-futbol-matches-adm',
@@ -9,11 +10,28 @@ import { ApiService } from '../api.service';
 })
 export class AllFutbolMatchesAdmPage implements OnInit {
   nombreTorneo:any;
+  ubicacion:any;
   id: any;
   Eq1: any;
+  rutaTabla:any;
   Eq2: any;
+  result1:any;
+  result2:any;
   partidos: any[] = [];
-  constructor(private el: ElementRef, private http: HttpClient, public _apiService: ApiService) { }
+  constructor(private el: ElementRef, private http: HttpClient, public _apiService: ApiService, private db:Firestore) { }
+
+  async apagar() {
+
+    const datosActualizados = {
+      ubicacion: this.ubicacion,
+      result1: this.result1,
+      result2: this.result2
+  };
+
+    this.rutaTabla = doc(this.db,'Partido','datos');//RUTA DE TABLA EN LA BD
+    await setDoc(this.rutaTabla, datosActualizados);//CAMBIA EL ATRIBUTO DE LA TABLA
+
+}
 
   ngOnInit() {
     this.nombreTorneo = localStorage.getItem("NombreTorneo");
@@ -31,7 +49,15 @@ export class AllFutbolMatchesAdmPage implements OnInit {
 
         }
         
-  
+      
+
+      enviarUbi(result1:any, result2:any,ubi:any){
+        this.ubicacion=ubi;
+        this.result1=result1;
+        this.result2=result2;
+        console.log(this.ubicacion, result1, result2);
+        this.apagar();
+      }
 
   enviarID(id: any, Eq1:any, Eq2:any){
     this.id=id;

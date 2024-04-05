@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
+import { Firestore, doc, setDoc } from 'firebase/firestore';
 import { AllFutbolMatchesAdmPageRoutingModule } from './all-futbol-matches-adm-routing.module';
 
 import { AllFutbolMatchesAdmPage } from './all-futbol-matches-adm.page';

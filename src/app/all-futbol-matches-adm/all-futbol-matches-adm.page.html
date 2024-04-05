@@ -12,7 +12,7 @@
 </div>
 
 <ion-list  [inset]="true" lines="inset">
-  <ion-item *ngFor="let partido of partidos"   >
+  <ion-item *ngFor="let partido of partidos" (click)="enviarUbi(partido.resultEq1, partido.resultEq2, partido.ubiPartido)"  >
     <ion-grid >
       <ion-row class="ion-align-items-center" >
         <ion-col  size="3">

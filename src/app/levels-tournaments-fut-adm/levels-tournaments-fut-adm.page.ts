@@ -8,9 +8,6 @@ import { IonicSlides } from '@ionic/angular';
 })
 export class LevelsTournamentsFutAdmPage implements OnInit {
   swiperModules = [IonicSlides];
-swiperSlideChanged($event: CustomEvent<[swiper: import("swiper/types/swiper-class").default]>) {
-throw new Error('Method not implemented.');
-}
 
   constructor() { }
 
